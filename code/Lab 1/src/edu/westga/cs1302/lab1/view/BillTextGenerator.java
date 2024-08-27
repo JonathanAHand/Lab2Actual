@@ -24,7 +24,6 @@ public class BillTextGenerator {
 	 * 
 	 * @return A string with the list of items on the bill and the total
 	 */
-
 	public String generateBillText(Bill bill) {
 		if (bill == null) {
 			throw new IllegalArgumentException("Invalid Input: Bill must not be null.");
