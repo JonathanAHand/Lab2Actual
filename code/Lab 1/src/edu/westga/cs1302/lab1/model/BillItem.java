@@ -14,10 +14,11 @@ public class BillItem {
 	 * 				 amount > 0
 	 * @postcondition getName() == name &&
 	 * 				  getAmount() == amount
-	 * 
+	 * @param item the item listed on the bill
 	 * @param name the name of the bill item
 	 * @param amount the amount (cost) of the bill item
 	 */
+	
 	public BillItem(String name, double amount, String item) {
 		if (name == null) {
 			throw new IllegalArgumentException("name must not be null.");
@@ -29,7 +30,6 @@ public class BillItem {
 		this.amount = amount;
 	}
 	
-
 	/** Return the name for the bill item
 	 * 
 	 * @precondition none
@@ -41,7 +41,6 @@ public class BillItem {
 		return this.name;
 	}
 	
-
 	/** Return the amount for the bill item
 	 * 
 	 * @precondition none

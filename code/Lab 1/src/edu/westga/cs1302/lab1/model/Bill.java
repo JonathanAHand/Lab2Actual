@@ -9,6 +9,8 @@ import java.util.ArrayList;
  * @version Fall 2024
  */
 public class Bill {
+	public static final double TIP = 0.2;
+	public static final double TAX = 0.1;
 	private ArrayList<BillItem> items;
 
 	/**
@@ -55,8 +57,8 @@ public class Bill {
 
 		text += System.lineSeparator();
 		text += "SUBTOTAL - $" + subTotal + System.lineSeparator();
-		double tax = subTotal * 0.1;
-		double tip = subTotal * 0.2;
+		double tax = subTotal * TAX;
+		double tip = subTotal * TIP;
 		text += "TAX - $" + tax + System.lineSeparator();
 		text += "TIP - $" + tip + System.lineSeparator();
 		text += "TOTAL - $" + (subTotal + tip + tax);
