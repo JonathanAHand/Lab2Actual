@@ -13,8 +13,6 @@ import edu.westga.cs1302.lab1.model.BillItem;
 
 public class BillTextGenerator {
 
-	private BillItem[] items;
-
 	/**
 	 * Generates the actual text for the bill
 	 * 
@@ -30,19 +28,18 @@ public class BillTextGenerator {
 		}
 		StringBuilder billText = new StringBuilder();
 		billText.append("ITEMS").append(System.lineSeparator());
-		double subTotal = 0.0;
-		for (BillItem item : this.items) {
+		
+		for (BillItem item : bill.getItems()) {
 			billText.append(item.getName()).append(" - ").append(item.getAmount()).append(System.lineSeparator());
-			subTotal += item.getAmount();
 		}
 
 		billText.append(System.lineSeparator());
-		billText.append("Subtotal: $").append(subTotal).append(System.lineSeparator());
-		double billTax = subTotal * 0.07;
-		double billTip = subTotal * 0.2;
-		billText.append("TAX: $").append(billTax).append(System.lineSeparator());
-		billText.append("TIP: $").append(billTip).append(System.lineSeparator());
-		billText.append("Total: $").append(subTotal + billTax + billTip);
+		billText.append("Subtotal: $").append(bill.getSubTotal()).append(System.lineSeparator());
+		double total = bill.calculateTotal();
+		
+		billText.append("TAX: $").append(bill.getTax()).append(System.lineSeparator());
+		billText.append("TIP: $").append(bill.getTip()).append(System.lineSeparator());
+		billText.append("Total: $").append(total);
 
 		return billText.toString();
 	}
