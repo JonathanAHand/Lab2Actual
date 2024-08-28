@@ -30,18 +30,22 @@ public class BillTextGenerator {
 		billText.append("ITEMS").append(System.lineSeparator());
 		
 		for (BillItem item : bill.getItems()) {
-			billText.append(item.getName()).append(" - ").append(item.getAmount()).append(System.lineSeparator());
+			billText.append(item.getName()).append(" - ").append(this.currencyFormatter(item.getAmount())).append(System.lineSeparator());
 		}
 
 		billText.append(System.lineSeparator());
-		billText.append("Subtotal: $").append(bill.getSubTotal()).append(System.lineSeparator());
+		billText.append("Subtotal: $").append(this.currencyFormatter(bill.getSubTotal())).append(System.lineSeparator());
 		double total = bill.calculateTotal();
 		
-		billText.append("TAX: $").append(bill.getTax()).append(System.lineSeparator());
-		billText.append("TIP: $").append(bill.getTip()).append(System.lineSeparator());
-		billText.append("Total: $").append(total);
+		billText.append("TAX: $").append(this.currencyFormatter(bill.getTax())).append(System.lineSeparator());
+		billText.append("TIP: $").append(this.currencyFormatter(bill.getTip())).append(System.lineSeparator());
+		billText.append("Total: $").append(this.currencyFormatter(total));
 
 		return billText.toString();
+		}
+	
+	private String currencyFormatter(double amount) {
+		return String.format("%.2f", amount);
 	}
 
 }
