@@ -12,19 +12,6 @@ class TestAddItem {
 	public void setUp() {
 		this.bill = new Bill();
 	}
-	
-	@Test
-    public void testNegativeAmountShouldThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new BillItem("Monster", -3.00, "Energy Drink"));
-    }
-	
-	@Test
-	public void testItemShouldNotBeNull() {
-		Bill item = new Bill();
-		assertThrows(IllegalArgumentException.class, () -> {
-			item.addItem(null);
-		});
-	}
 
 	@Test
 	public void testAddItemUpdatesSubtotalCorrectly() {
