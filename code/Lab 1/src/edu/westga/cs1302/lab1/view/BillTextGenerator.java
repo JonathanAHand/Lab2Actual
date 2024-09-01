@@ -16,8 +16,8 @@ public class BillTextGenerator {
 	/**
 	 * Generates the actual text for the bill
 	 * 
-	 * @precondition bill != null
-	 * @postcondition
+	 * @precondition bill != null && !bill.isEmpty()
+	 * @postcondition the list is returned
 	 * @param bill the bill text is being generated for
 	 * 
 	 * @return A string with the list of items on the bill and the total
@@ -26,6 +26,11 @@ public class BillTextGenerator {
 		if (bill == null) {
 			throw new IllegalArgumentException("Invalid Input: Bill must not be null.");
 		}
+
+//		if (bill.getItems() == null || bill.getItems().isEmpty()) {
+//			throw new IllegalArgumentException("Invalid Input: Bill must contain at least one item.");
+//		}
+
 		StringBuilder billText = new StringBuilder();
 		billText.append("ITEMS").append(System.lineSeparator());
 		

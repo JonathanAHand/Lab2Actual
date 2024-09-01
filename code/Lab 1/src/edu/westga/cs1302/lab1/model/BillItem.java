@@ -9,6 +9,7 @@ package edu.westga.cs1302.lab1.model;
 public class BillItem {
 	private String name;
 	private double amount;
+	private String item;
 
 	/**
 	 * Creates a new bill item with the provided name and amount.
@@ -19,15 +20,21 @@ public class BillItem {
 	 * @param name   the name of the bill item
 	 * @param amount the amount (cost) of the bill item
 	 */
+	
 	public BillItem(String name, double amount, String item) {
-		if (name == null) {
-			throw new IllegalArgumentException("name must not be null.");
+		if (name == null || name.isEmpty()) {
+			throw new IllegalArgumentException("Name must not be neither null nor empty.");
 		}
+	
 		if (amount <= 0) {
-			throw new IllegalArgumentException("amount must be positive, but was " + amount);
+			throw new IllegalArgumentException("Amount must be positive, but was " + amount);
+		}
+		if (item == null || item.isEmpty()) {
+			throw new IllegalArgumentException("Item must neither be null nor empty.");
 		}
 		this.name = name;
 		this.amount = amount;
+		this.item = item;
 	}
 
 	/**
@@ -61,6 +68,7 @@ public class BillItem {
 	 * @return the item for the bill
 	 */
 	public String getItem() {
-		return this.getItem();
+		return this.item;
 	}
+
 }

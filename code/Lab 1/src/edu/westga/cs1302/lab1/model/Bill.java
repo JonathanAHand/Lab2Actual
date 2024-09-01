@@ -27,28 +27,28 @@ public class Bill {
 		this.items = new ArrayList<BillItem>();
 	}
 
-	/**Gets the item name for the bill total
+	/**Returns the item name for the bill total
 	 * @return the items
 	 */
 	public ArrayList<BillItem> getItems() {
 		return this.items;
 	}
 
-	/**Gets the tax amount for the bill total 
+	/**Returns the tax amount for the bill total 
 	 * @return the tax
 	 */
 	public double getTax() {
 		return this.tax;
 	}
 
-	/**Gets the tip amount for the bill total
+	/**Returns the tip amount for the bill total
 	 * @return the tip
 	 */
 	public double getTip() {
 		return this.tip;
 	}
 
-	/**Gets the sub total amount for the bill total
+	/**Returns the sub total amount for the bill total
 	 * @return the subTotal
 	 */
 	public double getSubTotal() {
@@ -79,7 +79,17 @@ public class Bill {
 	public double calculateTotal() {
 		this.tax = this.subTotal * Bill.TAX_RATE;
 		this.tip = this.subTotal * Bill.TIP_RATE;
-		
+
 		return this.subTotal + this.tax + this.tip;
 	}
+
+	/**
+	 * Returns a formatted string of the total amount
+	 * 
+	 * @return the formatted total
+	 */
+	public String getFormattedTotal() {
+		return String.format("%.2f", this.calculateTotal());
+	}
+
 }
