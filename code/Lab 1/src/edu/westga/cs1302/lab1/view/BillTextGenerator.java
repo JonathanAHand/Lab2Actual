@@ -27,21 +27,19 @@ public class BillTextGenerator {
 			throw new IllegalArgumentException("Invalid Input: Bill must not be null.");
 		}
 
-//		if (bill.getItems() == null || bill.getItems().isEmpty()) {
-//			throw new IllegalArgumentException("Invalid Input: Bill must contain at least one item.");
-//		}
-
 		StringBuilder billText = new StringBuilder();
 		billText.append("ITEMS").append(System.lineSeparator());
-		
+
 		for (BillItem item : bill.getItems()) {
-			billText.append(item.getName()).append(" - ").append(this.currencyFormatter(item.getAmount())).append(System.lineSeparator());
+			billText.append(item.getName()).append(" - ").append(this.currencyFormatter(item.getAmount()))
+					.append(System.lineSeparator());
 		}
 
 		billText.append(System.lineSeparator());
-		billText.append("Subtotal: $").append(this.currencyFormatter(bill.getSubTotal())).append(System.lineSeparator());
+		billText.append("Subtotal: $").append(this.currencyFormatter(bill.getSubTotal()))
+				.append(System.lineSeparator());
 		double total = bill.calculateTotal();
-		
+
 		billText.append("TAX: $").append(this.currencyFormatter(bill.getTax())).append(System.lineSeparator());
 		billText.append("TIP: $").append(this.currencyFormatter(bill.getTip())).append(System.lineSeparator());
 		billText.append("Total: $").append(this.currencyFormatter(total));
