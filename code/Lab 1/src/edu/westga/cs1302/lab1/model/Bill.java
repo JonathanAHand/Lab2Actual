@@ -47,7 +47,15 @@ public class Bill {
 	public double getTip() {
 		return this.tip;
 	}
-
+	
+	/**Sets value amount for subTotal.
+	 * @param subTotal the amount set for subTotal
+	 */
+	
+	public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+	
 	/**Returns the sub total amount for the bill total
 	 * @return the subTotal
 	 */
