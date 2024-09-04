@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Bill {
 	public static final double TIP_RATE = 0.2;
 	public static final double TAX_RATE = 0.1;
+	
 	private ArrayList<BillItem> items;
 	private double subTotal;
 	private double tax;
