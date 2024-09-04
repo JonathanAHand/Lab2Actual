@@ -89,15 +89,6 @@ public class Bill {
 		this.tip = this.subTotal * Bill.TIP_RATE;
 
 		return this.subTotal + this.tax + this.tip;
-	}
-
-	/**
-	 * Returns a formatted string of the total amount
-	 * 
-	 * @return the formatted total
-	 */
-	public String getFormattedTotal() {
-		return String.format("%.2f", this.calculateTotal());
-	}
+	}	
 
 }
